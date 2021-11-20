@@ -1,17 +1,33 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDOM from "react-dom";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
+import App from "./App";
+import Article from "./routes/article";
+import { Articles } from "./routes/articles";
+import Blog from "./routes/blog";
+import { Blogs } from "./routes/blogs";
+export const api = "https://api.spaceflightnewsapi.net/v3";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<App />}>
+        <Route index element={<Articles />} />
+        <Route path="articles" element={<Articles />} />
+        <Route path="articles/:id" element={<Article />} />
+        <Route path="blogs" element={<Blogs />} />
+        <Route path="blogs/:id" element={<Blog />} />
+      </Route>
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+      {/* default */}
+      <Route
+        path="*"
+        element={
+          <main className="container">
+            <h2>Ruta no implementada</h2>
+          </main>
+        }
+      />
+    </Routes>
+  </BrowserRouter>,
+  document.getElementById("root")
+);

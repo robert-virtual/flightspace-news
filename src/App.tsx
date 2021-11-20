@@ -1,24 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Link, Outlet } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <nav
+        style={{
+          position: "sticky",
+          top: 0,
+          display: "flex",
+          justifyContent: "space-between",
+          padding: "1rem",
+          backgroundColor: "#222",
+        }}
+      >
+        <Link
+          style={{
+            color: "white",
+            textDecoration: "none",
+          }}
+          to="/"
         >
-          Learn React
-        </a>
-      </header>
+          Flights App (react router v6)
+        </Link>
+        <ul
+          style={{
+            display: "flex",
+            justifyContent: "space-around",
+            width: "50%",
+          }}
+        >
+          <Link className="text-light" to="/articles">
+            Articles
+          </Link>
+          <Link className="text-light" to="/blogs">
+            Blogs
+          </Link>
+        </ul>
+      </nav>
+      <Outlet />
     </div>
   );
 }
