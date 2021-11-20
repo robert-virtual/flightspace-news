@@ -5,8 +5,8 @@ import Article from "./routes/article";
 import { Articles } from "./routes/articles";
 import Blog from "./routes/blog";
 import { Blogs } from "./routes/blogs";
+import "./index.css";
 export const api = "https://api.spaceflightnewsapi.net/v3";
-
 ReactDOM.render(
   <BrowserRouter>
     <Routes>

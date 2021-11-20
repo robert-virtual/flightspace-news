@@ -1,6 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { api } from "..";
+import NewItem from "../components/NewItem";
 import { ArticleT } from "./articles";
 
 export const Blogs: FC = () => {
@@ -16,26 +17,17 @@ export const Blogs: FC = () => {
   return (
     <div className="container">
       <h2>Blogs</h2>
-      <ul
+      <div
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fit,minmax(300px,1fr))",
+          gap: "1rem",
         }}
       >
-        {blogs.map(({ title, id, imageUrl }) => (
-          <div key={id}>
-            <img
-              style={{
-                width: "300px",
-              }}
-              src={imageUrl}
-              alt=""
-            />
-            <h2>{title}</h2>
-            <Link to={`/blogs/${id}`}>Ver mas</Link>
-          </div>
+        {blogs.map((item) => (
+          <NewItem key={item.id} item={item} />
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

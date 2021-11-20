@@ -1,5 +1,6 @@
 import { FC, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import NewItem from "../components/NewItem";
 import { api } from "../index";
 
 export interface ArticleT {
@@ -25,30 +26,19 @@ export const Articles: FC = () => {
   }
   return (
     <div className="container">
-      <h2>Articles </h2>
+      <h2>Articles</h2>
 
-      <ul
+      <div
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fit,minmax(300px,1fr))",
+          gap: "1rem",
         }}
       >
-        {news.map(({ id, title, imageUrl }) => (
-          <div key={id}>
-            <img
-              style={{
-                width: "300px",
-              }}
-              src={imageUrl}
-              alt={title}
-            />
-            <h4>{title}</h4>
-            <p>
-              <Link to={`/articles/${id}`}>Ver mas</Link>
-            </p>
-          </div>
+        {news.map((item) => (
+          <NewItem key={item.id} item={item} />
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

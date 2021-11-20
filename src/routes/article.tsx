@@ -34,7 +34,9 @@ const Article: FC = () => {
         alt=""
       />
       <p>{article?.summary}</p>
-      <a href={article?.url}>Ver en el la fuente</a>
+      <a href={article?.url} target="_blank" rel="noreferrer">
+        Ver en el la fuente
+      </a>
       <p>{formatDate(article?.publishedAt)}</p>
     </div>
   );

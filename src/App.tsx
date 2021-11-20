@@ -1,41 +1,34 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <nav
-        style={{
-          position: "sticky",
-          top: 0,
-          display: "flex",
-          justifyContent: "space-between",
-          padding: "1rem",
-          backgroundColor: "#222",
-        }}
-      >
-        <Link
-          style={{
-            color: "white",
-            textDecoration: "none",
-          }}
-          to="/"
-        >
-          Flights App (react router v6)
+      <nav className="top">
+        <Link title="Flights App" className="brand" to="/">
+          <i className="fas fa-space-shuttle"></i>
         </Link>
-        <ul
-          style={{
-            display: "flex",
-            justifyContent: "space-around",
-            width: "50%",
-          }}
-        >
-          <Link className="text-light" to="/articles">
-            Articles
-          </Link>
-          <Link className="text-light" to="/blogs">
-            Blogs
-          </Link>
-        </ul>
+        <div className="links">
+          <NavLink
+            title="articles"
+            style={{
+              textDecoration: "none",
+            }}
+            className={({ isActive }) => (isActive ? "current" : "")}
+            to="/articles"
+          >
+            <i className="fas fa-newspaper"></i>
+          </NavLink>
+          <NavLink
+            title="blogs"
+            style={{
+              textDecoration: "none",
+            }}
+            className={({ isActive }) => (isActive ? "current" : "")}
+            to="/blogs"
+          >
+            <i className="fab fa-blogger"></i>
+          </NavLink>
+        </div>
       </nav>
       <Outlet />
     </div>

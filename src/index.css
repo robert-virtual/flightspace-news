@@ -1,0 +1,102 @@
+:root {
+  --nav-bg: #222;
+  --icons-size: 1.5rem;
+  --nav-size: 5rem;
+}
+
+body::-webkit-scrollbar {
+  width: 0.75rem;
+}
+body::-webkit-scrollbar-thumb {
+  border-radius: 0.75rem;
+  background-color: blueviolet;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: gray;
+}
+
+nav.top {
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+  top: 0;
+  align-items: center;
+  width: var(--nav-size);
+  height: 100vh;
+  background-color: var(--nav-bg);
+}
+.brand {
+  display: block;
+  margin-top: 1rem;
+  color: white;
+  text-decoration: none;
+  font-size: var(--icons-size);
+  transform: rotate(-90deg);
+}
+
+div.links {
+  display: flex;
+  flex-direction: column;
+  /* border: solid red 1px; */
+  height: 50%;
+  justify-content: space-evenly;
+}
+
+i {
+  color: white;
+}
+.links a {
+  margin: 0;
+  padding: 0.5rem;
+  color: white;
+  font-size: var(--icons-size);
+  border-radius: 0.5rem;
+  transition: background-color 0.3s;
+}
+.current {
+  background-color: #444;
+}
+.links a:hover {
+  background-color: #444;
+}
+
+.new a {
+  position: relative;
+  display: inline-block;
+  /* border: 1px red solid; */
+  left: 90%;
+  top: 5%;
+  background-color: var(--nav-bg);
+  width: var(--icons-size);
+}
+.new a:hover i {
+  animation: spin 0.3s linear;
+  color: blueviolet;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(180deg);
+  }
+  1000% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 415px) {
+  nav.top {
+    top: auto;
+    bottom: 0;
+    width: 100vw;
+    flex-direction: row;
+    height: var(--nav-size);
+  }
+  .brand {
+    display: none;
+  }
+  div.links {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
