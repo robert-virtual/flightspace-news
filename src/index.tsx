@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom";
-import { Route, Routes, BrowserRouter } from "react-router-dom";
+import { Route, Routes, BrowserRouter, Link } from "react-router-dom";
 import App from "./App";
 import Article from "./routes/article";
 import { Articles } from "./routes/articles";
@@ -24,6 +24,9 @@ ReactDOM.render(
         element={
           <main className="container">
             <h2>Ruta no implementada</h2>
+            <Link to="/" className="btn btn-primary">
+              Inicio
+            </Link>
           </main>
         }
       />

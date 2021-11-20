@@ -1,5 +1,4 @@
 import { FC, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { api } from "..";
 import NewItem from "../components/NewItem";
 import { ArticleT } from "./articles";
