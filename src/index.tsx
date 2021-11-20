@@ -22,8 +22,7 @@ ReactDOM.render(
       <Route
         path="*"
         element={
-          <main className="container">
-            <h2>Ruta no implementada</h2>
+          <main className="container mt-4">
             <Link to="/" className="btn btn-primary">
               Inicio
             </Link>
